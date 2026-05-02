@@ -6,7 +6,7 @@
 # - https://github.com/conda/conda-build/issues/3097
 # - https://stackoverflow.com/a/49119902/2427624
 if [[ ${target_platform} =~ .*linux.* ]]; then
-    CXXFLAGS="${CXXFLAGS//++17/++14 -fpermissive}"
+    CXXFLAGS="${CXXFLAGS} -std=c++14 -Wno-deprecated"
 fi
 
 ./configure --prefix=${PREFIX} --with-ltl=${PREFIX} --with-libjpeg=${PREFIX}
